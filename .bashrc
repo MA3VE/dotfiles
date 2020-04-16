@@ -93,6 +93,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias python2='python'
 alias python='python3'
+alias start='cmd.exe /c start'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
