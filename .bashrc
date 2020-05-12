@@ -125,12 +125,21 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH=/home/j0/anaconda3/bin:$PATH
 
+gb() {
+        echo -n '(' && git branch 2>/dev/null | grep '^*' | colrm 1 2 | tr -d '\n' && echo  -n ')'
+}
+git_branch() {
+        gb | sed 's/()//'
+}
+
 PS1="\[$(tput bold)\]"; 
 PS1+="\[$(tput setaf 166)\]\u ";
 PS1+="\[$(tput setaf 255)\]at " ;
 PS1+="\[$(tput setaf 228)\]\h ";
 PS1+="\[$(tput setaf 255)\]in " ;
-PS1+="\[$(tput setaf 71)\]\w\n";
+PS1+="\[$(tput setaf 71)\]\w";
+PS1+="\[$(tput setaf 135)\]";
+PS1+="\$(git_branch)\n" ;
 PS1+="\[$(tput setaf 44)\]\t-> "
 PS1+="\[$(tput sgr0)\]"
 
